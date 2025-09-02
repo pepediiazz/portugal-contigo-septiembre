@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ruta Detallada: Málaga a Portugal</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #f8fafc;
+            }
+            .day-card {
+                background-color: white;
+                border-radius: 1rem;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+                    0 4px 6px -4px rgb(0 0 0 / 0.1);
+                transition: transform 0.2s ease-in-out;
+            }
+            .day-card:hover {
+                transform: translateY(-5px);
+            }
+            .day-header {
+                border-bottom: 2px solid #e5e7eb;
+                padding-bottom: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .day-title {
+                font-size: 1.875rem;
+                font-weight: 700;
+                color: #111827;
+            }
+            .day-subtitle {
+                font-size: 1.125rem;
+                color: #4b5563;
+            }
+            .activity-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #1f2937;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .highlight {
+                background-color: #fef9c3; /* Amarillo claro para destacar */
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.25rem;
+                font-weight: 600;
+                color: #713f12;
+            }
+            .map-point {
+                font-weight: 600;
+                color: #1d4ed8;
+            }
+            .tip-box {
+                background-color: #e0f2fe;
+                border-left: 4px solid #0ea5e9;
+                color: #0c4a6e;
+                padding: 1rem;
+                margin-top: 1rem;
+                border-radius: 0.25rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="bg-white shadow-md py-6">
+            <div class="max-w-5xl mx-auto px-4">
+                <h1 class="text-4xl font-bold text-center text-gray-800">
+                    Vuestro Road Trip a Portugal 🚗💨
+                </h1>
+                <p class="text-xl text-center text-gray-600 mt-2">
+                    Una Aventura Detallada: del 20 al 26
+                </p>
+            </div>
+        </header>
+
+        <main class="max-w-5xl mx-auto p-4 md:p-8">
+            <!-- Día 1: Málaga a Lagos y Exploración -->
+            <section class="day-card" id="dia1">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 1 (20): Directos al Corazón del Algarve
+                    </h2>
+                    <p class="day-subtitle">
+                        Distancia: ~4h 30min en coche a Lagos.
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/818cf8/ffffff?text=Ponta+da+Piedade,+Lagos"
+                    alt="Ponta da Piedade en Lagos"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">Mañana: Viaje y Alojamiento</h3>
+                    <p class="text-gray-700">
+                        Salid de Málaga sin prisa pero sin pausa. El destino es
+                        Lagos, una base perfecta en el Algarve. Al llegar, dejad
+                        las cosas en el alojamiento y preparaos para explorar.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Comida y Primer Paseo por Lagos
+                    </h3>
+                    <p class="text-gray-700">
+                        Para comer algo rápido y local, buscad un sitio de
+                        "bifanas" o "pregos". Una buena opción es
+                        <strong class="highlight">"Casa do Prego"</strong>.
+                        Después, dad un paseo por el centro histórico. Aquí
+                        tenéis una ruta a pie:
+                    </p>
+                    <ul
+                        class="list-disc list-inside text-gray-700 mt-2 ml-4 space-y-1"
+                    >
+                        <li>
+                            Empezad en la
+                            <span class="map-point"
+                                >Avenida dos Descobrimentos</span
+                            >, junto al río.
+                        </li>
+                        <li>
+                            Entrad al centro por la
+                            <span class="map-point">Praça Gil Eanes</span>.
+                        </li>
+                        <li>
+                            Recorred la animada
+                            <span class="map-point">Rua 25 de Abril</span>,
+                            llena de tiendas y bares.
+                        </li>
+                        <li>
+                            Descubrid la curiosa
+                            <span class="map-point"
+                                >Igreja de Santo António</span
+                            >, con su interior dorado.
+                        </li>
+                    </ul>
+
+                    <h3 class="activity-title">
+                        Tarde/Atardecer: Magia en Ponta da Piedade
+                    </h3>
+                    <p class="text-gray-700">
+                        Por la tarde, conducid hasta
+                        <span class="map-point">"Ponta da Piedade"</span>. Es el
+                        lugar más espectacular de Lagos. Podéis caminar por los
+                        senderos de los acantilados para tener diferentes
+                        perspectivas. No os quedéis solo arriba:
+                        <strong class="highlight"
+                            >bajad la escalinata de madera</strong
+                        >
+                        hasta el nivel del mar para ver los arcos y cuevas de
+                        cerca. El atardecer aquí es inolvidable.
+                    </p>
+                    <div class="tip-box">
+                        <p class="font-bold">Tip de la gente:</p>
+                        <p>
+                            Justo al bajar las escaleras en Ponta da Piedade,
+                            pequeños barcos de pescadores ofrecen tours de 20-30
+                            minutos por las cuevas. Cuesta unos 15-20€ y es la
+                            mejor inversión del día. Te meten en grutas a las
+                            que es imposible acceder de otra forma.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Día 2: Playas de Ensueño -->
+            <section class="day-card" id="dia2">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 2 (21): Playas de Postal y Acantilados
+                    </h2>
+                    <p class="day-subtitle">
+                        Un día para descubrir las joyas del Algarve.
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/f472b6/ffffff?text=Cueva+de+Benagil,+Algarve"
+                    alt="Cueva de Benagil"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">
+                        Mañana: Cueva de Benagil y Praia da Marinha
+                    </h3>
+                    <p class="text-gray-700">
+                        Hoy toca madrugar un poco para evitar multitudes.
+                        Conducid hasta la
+                        <span class="map-point">"Praia de Benagil"</span>. Para
+                        llegar a la famosa cueva, lo mejor es alquilar un kayak
+                        o paddle surf allí mismo. ¡Id a primera hora! Después,
+                        moveos a la playa de al lado, la
+                        <span class="map-point">"Praia da Marinha"</span>,
+                        considerada una de las más bonitas del mundo. Aquí
+                        tenéis un planazo:
+                    </p>
+                    <p class="text-gray-700 mt-2">
+                        En lugar de solo tumbaros en la arena, haced un tramo
+                        del
+                        <strong class="highlight"
+                            >"Percurso dos Sete Vales Suspensos" (Ruta de los
+                            Siete Valles Colgantes)</strong
+                        >. Desde lo alto de Praia da Marinha, caminad hacia el
+                        oeste (hacia Benagil). Las vistas de los arcos y
+                        acantilados son impresionantes.
+                    </p>
+
+                    <h3 class="activity-title">Comida Económica con Vistas</h3>
+                    <p class="text-gray-700">
+                        Llevaos bocadillos y bebidas. Comed en la Praia da
+                        Marinha o en algún mirador del sendero. Ahorraréis
+                        dinero y disfrutaréis de un picnic en un lugar
+                        privilegiado.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Tarde: El Encanto de Carvoeiro
+                    </h3>
+                    <p class="text-gray-700">
+                        Por la tarde, visitad el pueblo de
+                        <span class="map-point">Carvoeiro</span>. Es un pueblo
+                        blanco y precioso encajado en un acantilado. No os
+                        perdáis el
+                        <strong class="highlight">"Algar Seco"</strong>, unas
+                        pasarelas de madera que recorren las formaciones rocosas
+                        junto al mar, con túneles y ventanas naturales al
+                        océano. Es un paseo fácil y espectacular.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Día 3: Dejando el Algarve hacia Lisboa -->
+            <section class="day-card" id="dia3">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 3 (22): Rumbo a Lisboa, la Ciudad de la Luz
+                    </h2>
+                    <p class="day-subtitle">
+                        Distancia: ~2h 45min en coche. ¡Recordad que es una hora
+                        menos en Portugal!
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/60a5fa/ffffff?text=Praça+do+Comércio,+Lisboa"
+                    alt="Plaza del Comercio de Lisboa"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">
+                        Mañana y Tarde: Viaje y Primer Contacto
+                    </h3>
+                    <p class="text-gray-700">
+                        Salid del Algarve por la mañana. Al llegar a Lisboa, id
+                        al hotel, aparcad el coche (no lo necesitaréis para nada
+                        en la ciudad) y preparaos para una tarde intensa de
+                        exploración a pie.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Ruta a Pie: El Corazón de Lisboa
+                    </h3>
+                    <p class="text-gray-700">
+                        Esta ruta os dará una primera impresión increíble de la
+                        ciudad:
+                    </p>
+                    <ol
+                        class="list-decimal list-inside text-gray-700 mt-2 ml-4 space-y-2"
+                    >
+                        <li>
+                            Comenzad en la
+                            <span class="map-point">Praça do Comércio</span>.
+                            Cruzad el
+                            <span class="map-point">Arco da Rua Augusta</span>.
+                        </li>
+                        <li>
+                            Subid toda la
+                            <span class="map-point">Rua Augusta</span>
+                            (peatonal) hasta la
+                            <span class="map-point">Praça do Rossio</span>.
+                            Fijaos en el suelo ondulado y la fachada de la
+                            estación de tren.
+                        </li>
+                        <li>
+                            Buscad el
+                            <span class="map-point"
+                                >Elevador de Santa Justa</span
+                            >. Podéis subir para ver las vistas o simplemente
+                            admirarlo desde abajo para evitar colas.
+                        </li>
+                        <li>
+                            Caminad hasta el
+                            <span class="map-point">Convento do Carmo</span>,
+                            una iglesia sin techo destruida por el terremoto de
+                            1755. Es un lugar mágico.
+                        </li>
+                        <li>
+                            Para el atardecer, subid al
+                            <span class="map-point"
+                                >Miradouro de São Pedro de Alcântara</span
+                            >
+                            (podéis usar el Elevador da Glória, un funicular).
+                            Las vistas de la colina del castillo son las
+                            mejores.
+                        </li>
+                    </ol>
+
+                    <h3 class="activity-title">
+                        Noche: Cena y Ambiente en Bairro Alto
+                    </h3>
+                    <p class="text-gray-700">
+                        Desde el mirador, ya estáis en el
+                        <strong class="highlight">Bairro Alto</strong>. Por la
+                        noche, sus calles se llenan de vida. Para cenar barato,
+                        buscad una tasca pequeña.
+                        <strong class="highlight">"Tasca do Chico"</strong> es
+                        famosa por su fado vadio (espontáneo). Es una
+                        experiencia muy auténtica.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Día 4: Explorando Lisboa -->
+            <section class="day-card" id="dia4">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 4 (23): Alfama, Belém y el Tranvía 28
+                    </h2>
+                    <p class="day-subtitle">
+                        Un día de historia, pasteles y miradores.
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/34d399/ffffff?text=Monasterio+de+los+Jerónimos"
+                    alt="Monasterio de los Jerónimos"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">Mañana: Perderse por Alfama</h3>
+                    <p class="text-gray-700">
+                        La mejor forma de conocer Alfama es sin mapa, pero aquí
+                        tenéis unos puntos clave para no perderos lo esencial.
+                        Coged el famoso
+                        <strong class="highlight">tranvía 28</strong> para subir
+                        al barrio.
+                    </p>
+                    <ul
+                        class="list-disc list-inside text-gray-700 mt-2 ml-4 space-y-1"
+                    >
+                        <li>
+                            Bajaos cerca del
+                            <span class="map-point"
+                                >Miradouro das Portas do Sol</span
+                            >. Las vistas de los tejados y el Tajo son
+                            espectaculares. Al lado está el
+                            <span class="map-point"
+                                >Miradouro de Santa Luzia</span
+                            >, con sus azulejos.
+                        </li>
+                        <li>
+                            Subid al
+                            <span class="map-point">Castelo de S. Jorge</span>.
+                            Aunque no entréis, las vistas desde los alrededores
+                            merecen la pena.
+                        </li>
+                        <li>
+                            Bajad callejeando hasta la
+                            <span class="map-point"
+                                >Sé de Lisboa (Catedral)</span
+                            >.
+                        </li>
+                    </ul>
+
+                    <h3 class="activity-title">Tarde: El Barrio de Belém</h3>
+                    <p class="text-gray-700">
+                        Coged el tranvía 15E desde la Praça do Comércio hasta
+                        Belém. Es una visita obligada. No os podéis ir sin:
+                    </p>
+                    <ol
+                        class="list-decimal list-inside text-gray-700 mt-2 ml-4 space-y-2"
+                    >
+                        <li>
+                            Visitar la iglesia del
+                            <span class="map-point"
+                                >Monasterio de los Jerónimos</span
+                            >
+                            (la entrada a la iglesia es gratuita). Es una joya
+                            del arte manuelino.
+                        </li>
+                        <li>
+                            Hacer la foto icónica en la
+                            <span class="map-point">Torre de Belém</span>.
+                        </li>
+                        <li>
+                            Probar los auténticos pasteles de nata en
+                            <span class="map-point">"Pastéis de Belém"</span>.
+                            Comprad para llevar y comedlos en los jardines de
+                            enfrente.
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Día 5: Sintra -->
+            <section class="day-card" id="dia5">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 5 (24): Excursión a la Mágica Sintra
+                    </h2>
+                    <p class="day-subtitle">
+                        Un día de palacios y bosques encantados.
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/fbbf24/ffffff?text=Palacio+da+Pena,+Sintra"
+                    alt="Palacio da Pena"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">Cómo llegar y moverse</h3>
+                    <p class="text-gray-700">
+                        Id a la
+                        <span class="map-point"
+                            >Estación de Tren de Rossio</span
+                        >
+                        en Lisboa y coged el tren a Sintra (40 min). ¡No llevéis
+                        el coche! Al llegar, el autobús 434 hace una ruta
+                        circular por los principales monumentos.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Plan del Día: Dos Sitios Imprescindibles
+                    </h3>
+                    <p class="text-gray-700">
+                        Sintra es inabarcable en un día, así que es mejor
+                        centrarse. Mi recomendación:
+                    </p>
+                    <ol
+                        class="list-decimal list-inside text-gray-700 mt-2 ml-4 space-y-2"
+                    >
+                        <li>
+                            <strong class="highlight"
+                                >Quinta da Regaleira:</strong
+                            >
+                            Empezad aquí por la mañana, que suele haber menos
+                            gente. Es un palacio con jardines esotéricos,
+                            túneles secretos y el increíble Pozo Iniciático. Es
+                            pura aventura.
+                        </li>
+                        <li>
+                            <strong class="highlight">Palacio da Pena:</strong>
+                            Después de comer, coged el bus 434 para subir al
+                            icónico palacio de colores. Comprad la entrada
+                            online con antelación. Solo los exteriores y las
+                            vistas ya merecen la pena.
+                        </li>
+                    </ol>
+
+                    <h3 class="activity-title">
+                        Paseo por el Centro y Dulces Típicos
+                    </h3>
+                    <p class="text-gray-700">
+                        Antes de volver a Lisboa, pasead por el centro histórico
+                        de Sintra. Es muy bonito. Tenéis que hacer una parada
+                        obligatoria en
+                        <span class="map-point">"Piriquita"</span> para probar
+                        los dulces locales: los
+                        <strong class="highlight">travesseiros</strong>
+                        (hojaldre con almendra) y las
+                        <strong class="highlight">queijadas</strong>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Día 6: Lisboa Alternativa y Despedida -->
+            <section class="day-card" id="dia6">
+                <div class="day-header">
+                    <h2 class="day-title">
+                        Día 6 (25): La Lisboa Moderna y Gastronómica
+                    </h2>
+                    <p class="day-subtitle">
+                        Un día más relajado para descubrir otra cara de la
+                        ciudad.
+                    </p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/a78bfa/ffffff?text=LX+Factory,+Lisboa"
+                    alt="LX Factory en Lisboa"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+
+                <div>
+                    <h3 class="activity-title">
+                        Mañana: Arte Urbano en LX Factory
+                    </h3>
+                    <p class="text-gray-700">
+                        Coged un autobús o tranvía bajo el Puente 25 de Abril
+                        hasta <span class="map-point">"LX Factory"</span>. Es
+                        una antigua zona industrial reconvertida en un hervidero
+                        de creatividad, con tiendas de diseño, talleres de
+                        artistas, arte urbano y cafés con mucho rollo. No os
+                        perdáis la librería
+                        <strong class="highlight">"Ler Devagar"</strong>, es una
+                        de las más originales del mundo.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Comida: El Mundo en un Mercado
+                    </h3>
+                    <p class="text-gray-700">
+                        Para comer, id al
+                        <span class="map-point">"Time Out Market Lisboa"</span>
+                        (Mercado da Ribeira). Es un gran espacio gastronómico
+                        donde los mejores chefs de la ciudad tienen pequeños
+                        puestos. Hay muchísima variedad y es perfecto para que
+                        cada uno elija lo que le apetezca. Es un poco más caro
+                        que una tasca, pero la calidad y el ambiente merecen la
+                        pena.
+                    </p>
+
+                    <h3 class="activity-title">
+                        Tarde: Paseo Relajado y Últimas Compras
+                    </h3>
+                    <p class="text-gray-700">
+                        Dedicad la última tarde a un paseo más tranquilo por el
+                        barrio de <strong class="highlight">Chiado</strong>, la
+                        zona comercial más elegante, y
+                        <strong class="highlight">Príncipe Real</strong>, con
+                        sus tiendas conceptuales y palacetes. Es el lugar
+                        perfecto para comprar algún recuerdo especial.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Día 7: Vuelta a Málaga -->
+            <section class="day-card" id="dia7">
+                <div class="day-header">
+                    <h2 class="day-title">Día 7 (26): El Camino de Vuelta</h2>
+                    <p class="day-subtitle">Distancia: ~6h en coche.</p>
+                </div>
+                <img
+                    src="https://placehold.co/800x400/f87171/ffffff?text=De+vuelta+a+Málaga"
+                    alt="Carretera de vuelta a Málaga"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                />
+                <div>
+                    <h3 class="activity-title">Mañana: Desayuno y Carretera</h3>
+                    <p class="text-gray-700">
+                        Tomad un último desayuno con un café y un pastel de
+                        nata. Es un viaje largo, así que salid con tiempo para
+                        hacerlo con calma. Haced paradas para estirar las
+                        piernas y cambiar de conductor. ¡Buen viaje de vuelta a
+                        casa!
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-gray-800 text-white text-center py-6 mt-8">
+            <p>&copy; 2024 - ¡Que disfrutéis de una aventura inolvidable!</p>
+        </footer>
+    </body>
+</html>
