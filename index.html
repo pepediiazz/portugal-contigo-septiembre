@@ -3,209 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Definitiva: Portugal (21-26 Mar 2025)</title>
+    <title>Ruta por el Algarve: Málaga a Portugal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a single-page interactive itinerary with a tabbed navigation system for each day. This structure was chosen to break down the 6-day trip into manageable, focused sections, preventing the user from being overwhelmed by a long, scrolling document. A prominent "Pre-Trip Checklist" is placed at the top to highlight immediate, actionable tasks. The user flow is simple: review the checklist, then click on a day's tab to dynamically load its specific route, activities, food recommendations, and a "Plan B." This approach provides a clear, organized, and user-friendly way to explore the travel plan. -->
+    <!-- Visualization & Content Choices: The primary content is textual, organized into logical sections. (1) Itinerary Data -> Goal: Inform/Organize -> Presentation: Dynamic text blocks in a central content area. Interaction: The user clicks on a day's tab, and JavaScript updates the innerHTML of the content block with the relevant day's information stored in a JS object. This is more effective than a static page as it focuses user attention. (2) Pre-trip Tasks -> Goal: Actionable Checklist -> Presentation: A styled list. Interaction: Clicking a list item toggles a 'completed' style, providing immediate visual feedback for the user's planning process. (3) Route Overview -> Goal: Give a spatial sense of the trip -> Presentation: A minimalist visual timeline made with HTML/Tailwind divs, representing the main overnight stops. This avoids the complexity of an embedded map while still providing geographical context. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .day-card { background-color: white; border-radius: 1rem; padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
-        .curiosity-link { color: #2563eb; font-weight: 600; text-decoration: underline; text-decoration-color: #93c5fd; text-decoration-thickness: 2px; transition: all 0.2s; }
-        .curiosity-link:hover { color: #1d4ed8; background-color: #eff6ff; }
-        .ticket-info { background-color: #f0fdf4; border-left: 4px solid #22c55e; color: #14532d; padding: 1rem; margin-top: 1.5rem; border-radius: 0 0.25rem 0.25rem 0; }
-        .curiosity-section { background-color: #1f2937; color: #f3f4f6; padding: 2.5rem; border-radius: 1rem; margin-top: 3rem; }
-        .curiosity-box { background-color: #374151; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; }
-        .back-link { display: inline-block; margin-top: 1rem; color: #93c5fd; font-weight: 500; text-decoration: underline; }
-        .agenda-box { background-color: #f0f9ff; border: 1px solid #e0f2fe; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-active {
+            background-color: #A58258;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            background-color: #F5EFE6;
+            color: #785A3E;
+        }
+        .checklist-item.completed {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+        .content-card {
+            background-color: #FFFFFF;
+            border: 1px solid #EAE1D6;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
     </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-[#F5EFE6]">
 
-    <header class="bg-white shadow-md py-6">
-        <div class="max-w-5xl mx-auto px-4">
-            <h1 class="text-4xl font-bold text-center text-gray-800">Vuestra Guía Definitiva a Portugal 🇵🇹</h1>
-            <p class="text-xl text-center text-gray-600 mt-2">Aventura Actualizada: 21 al 26 de Marzo, 2025</p>
-        </div>
-    </header>
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#4A3F35]">Ruta por el Algarve</h1>
+            <p class="text-lg text-[#785A3E] mt-2">Un viaje en coche de 6 días desde Málaga (21 - 26)</p>
+        </header>
 
-    <main class="max-w-5xl mx-auto p-4 md:p-8">
-
-        <!-- Día 1: Málaga a Lagos -->
-        <section class="day-card" id="dia1">
-            <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 1 (Viernes, 21 Mar): La Era de los Descubrimientos en Lagos</h2>
-                <p class="text-lg text-gray-500">Distancia: ~4h 30min en coche.</p>
-            </div>
+        <main>
+            <section id="checklist" class="mb-8">
+                 <div class="content-card">
+                    <h2 class="text-2xl font-bold text-[#4A3F35] mb-4 border-b-2 border-[#EAE1D6] pb-2">Checklist de Reservas y Tickets</h2>
+                    <p class="text-[#785A3E] mb-4">¡Importante! Reserva esto antes de salir para aseguraros los mejores precios y disponibilidad.</p>
+                    <ul class="space-y-3">
+                        <li class="checklist-item flex items-center cursor-pointer">
+                            <span class="mr-3 text-[#A58258]">🎟️</span>
+                            <span class="flex-grow"><strong>Tour en barco/kayak a las Cuevas de Benagil (Día 3):</strong> Es la atracción principal. Se agota rápido, especialmente en temporada alta. Buscad en Portimão o en la propia playa de Benagil.</span>
+                        </li>
+                        <li class="checklist-item flex items-center cursor-pointer">
+                            <span class="mr-3 text-[#A58258]">🏨</span>
+                            <span class="flex-grow"><strong>Alojamientos:</strong> Reservad las noches en Tavira, Albufeira/Lagos para tener un campamento base. Lagos es una excelente opción para varias noches.</span>
+                        </li>
+                        <li class="checklist-item flex items-center cursor-pointer">
+                            <span class="mr-3 text-[#A58258]">🏰</span>
+                             <span class="flex-grow"><strong>Entradas a monumentos (opcional):</strong> Si queréis visitar el Castillo de Silves o la Fortaleza de Sagres, podéis comprar las entradas online para evitar colas, aunque no suele ser imprescindible.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
             
-            <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">08:00h:</strong> Salida de Málaga.</li>
-                    <li><strong class="font-semibold text-sky-800">13:00h (hora local):</strong> Llegada a Lagos, check-in y acomodación.</li>
-                    <li><strong class="font-semibold text-sky-800">14:00h:</strong> Comida y primer paseo por el centro histórico.</li>
-                    <li><strong class="font-semibold text-sky-800">17:00h:</strong> Conducir hacia Ponta da Piedade.</li>
-                    <li><strong class="font-semibold text-sky-800">17:30h - 19:30h:</strong> Exploración y tour en barco al atardecer.</li>
-                    <li><strong class="font-semibold text-sky-800">20:30h:</strong> Cena en el animado centro de Lagos.</li>
-                </ul>
-            </div>
-            
-            
-
-            <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">¡Bienvenidos a Lagos! No estáis en cualquier ciudad costera; estáis en el epicentro desde donde partió la Era de los Descubrimientos. Al pasear, imaginad que en el siglo XV, este era el Silicon Valley de la exploración naval. Vuestro primer paseo os llevará por la <strong class="font-semibold">Avenida dos Descobrimentos</strong> y el <a href="#curiosidad-mercado-escravos" class="curiosity-link">Mercado de Escravos</a>, un lugar de historia sombría pero fundamental. Al final del día, os espera <a href="#curiosidad-ponta-piedade" class="curiosity-link">Ponta da Piedade</a>. El nombre significa "Punta de la Piedad", y la leyenda cuenta que los pescadores se encomendaban aquí antes de salir a la mar. No os conforméis con la vista desde arriba; bajad y tomad ese barquito. Es un viaje a un mundo de catedrales y salones tallados por la naturaleza.</p>
-            
-            <div class="ticket-info">
-                <h4 class="font-bold">🎟️ Tickets y Alquileres:</h4>
-                <p><strong>Tour en Barco por Ponta da Piedade:</strong> Se contrata directamente con los pescadores al bajar las escaleras (unos 15-20€/persona). No necesita reserva online. Es una experiencia mágica al atardecer.</p>
-            </div>
-        </section>
-
-        <!-- Día 2: Algarve y viaje a Lisboa -->
-        <section class="day-card" id="dia2">
-            <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 2 (Sábado, 22 Mar): Joyas del Algarve y Rumbo a la Capital</h2>
-                <p class="text-lg text-gray-500">Un día intenso de naturaleza y carretera.</p>
+            <div id="tabs" class="flex flex-wrap justify-center gap-2 mb-6">
             </div>
 
-             <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">08:30h:</strong> Salida hacia Benagil. ¡El madrugón merece la pena!</li>
-                    <li><strong class="font-semibold text-sky-800">09:00h - 11:00h:</strong> Kayak o Paddle Surf a la Cueva de Benagil.</li>
-                    <li><strong class="font-semibold text-sky-800">11:30h:</strong> Caminata por un tramo del "Percurso dos Sete Vales Suspensos" desde Praia da Marinha.</li>
-                    <li><strong class="font-semibold text-sky-800">13:30h:</strong> Comida rápida en la zona.</li>
-                    <li><strong class="font-semibold text-sky-800">15:00h:</strong> Comienzo del viaje en coche hacia Lisboa (~3h).</li>
-                    <li><strong class="font-semibold text-sky-800">18:30h:</strong> Llegada a Lisboa, check-in y dejar el coche aparcado.</li>
-                    <li><strong class="font-semibold text-sky-800">20:30h:</strong> Primera cena en la capital.</li>
-                </ul>
+            <div id="content-display" class="transition-opacity duration-500 ease-in-out">
             </div>
-            
-            
+        </main>
+    </div>
 
-            <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">Hoy es un día de contrastes. Por la mañana, iréis a la caza de la foto de portada del Algarve: la <a href="#curiosidad-benagil" class="curiosity-link">Cueva de Benagil</a>. Este "algar" (cueva en árabe) es una maravilla geológica. Entrar y ver el haz de luz iluminando la playa interior es una experiencia casi mística. Después, os convertiréis en exploradores en la ruta de los <strong class="font-semibold">Sete Vales Suspensos</strong>, votada como la mejor ruta de senderismo de Europa. Por la tarde, cambiaréis los acantilados por el asfalto y pondréis rumbo a la capital. Llegaréis a Lisboa al atardecer, justo a tiempo para sentir la vibración de la ciudad y preparaos para los días de exploración que os esperan.</p>
+    <script>
+        const itineraryData = {
+            day1: {
+                title: "Día 1 (21): De Málaga a Tavira, la Venecia del Algarve",
+                route: "Málaga → Tavira (Aprox. 3h 30m - 330 km)",
+                plan: `
+                    <p class="mb-4">Salid temprano de Málaga para aprovechar el día. La primera parada es <strong>Tavira</strong>, una de las ciudades más encantadoras y auténticas del Algarve. Haced el check-in en vuestro alojamiento y preparaos para explorar.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana/Mediodía:</strong> Llegada y check-in. Come algo ligero al llegar.</li>
+                        <li><strong>Tarde:</strong> Pasead por el centro histórico de Tavira. Cruzad el <strong>Puente Romano</strong> (de origen romano pero reconstruido), subid al <strong>Castillo de Tavira</strong> para disfrutar de unas vistas panorámicas espectaculares de la ciudad y sus tejados.</li>
+                        <li><strong>Atardecer/Noche:</strong> Relajaos en la Praça da República. Cenad en el casco antiguo, disfrutando del ambiente tranquilo y romántico.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">Buscad tascas locales. <strong>"Casa Simão"</strong> o <strong>"Restaurante O Castelo"</strong> (cerca del castillo) ofrecen buen pescado fresco y comida tradicional a precios razonables.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si el tiempo no acompaña para pasear, podéis visitar el <strong>Mercado da Ribeira</strong> (ahora un espacio gastronómico y cultural) o la <strong>Igreja da Misericórdia</strong>, una joya del Renacimiento.</p>
+                `
+            },
+            day2: {
+                title: "Día 2 (22): Faro y el bullicio de Albufeira",
+                route: "Tavira → Faro → Albufeira (Aprox. 1h 15m - 75 km)",
+                plan: `
+                    <p class="mb-4">Hoy exploraréis la capital del Algarve, Faro, antes de dirigiros a una de las zonas más animadas, Albufeira, donde podéis establecer vuestra base para las próximas noches.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana:</strong> Conducid hasta <strong>Faro</strong>. Aparcad cerca del centro histórico y explorad la <strong>"Cidade Velha"</strong> (casco antiguo amurallado). Entrad por el Arco da Vila, visitad la Catedral (Sé de Faro) y subid a su torre para tener unas vistas impresionantes de la Ría Formosa.</li>
+                        <li><strong>Mediodía:</strong> Almorzad en Faro antes de continuar el viaje.</li>
+                        <li><strong>Tarde:</strong> Viaje a <strong>Albufeira</strong>. Haced check-in y bajad a la playa. Podéis elegir entre la <strong>Praia dos Pescadores</strong> (más céntrica y animada) o la <strong>Praia da Oura</strong> (famosa por su vida nocturna).</li>
+                        <li><strong>Noche:</strong> Cenad en el casco antiguo de Albufeira, que es más tradicional y con más encanto que la zona nueva.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">En Faro, <strong>"Tasca do Ricky"</strong>. En Albufeira, evitad los sitios más turísticos de la plaza principal. Buscad en las calles secundarias, por ejemplo <strong>"O Catraio"</strong> o <strong>"Restaurante O Penedo"</strong> para pescado fresco.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si Faro no os llama, podéis ir directamente a <strong>Vilamoura</strong> para ver su lujoso puerto deportivo antes de llegar a Albufeira. O si preferís playa, la <strong>Praia da Falésia</strong> es una opción espectacular con sus acantilados rojizos.</p>
+                `
+            },
+            day3: {
+                title: "Día 3 (23): Cuevas de Benagil y la magia de Lagos",
+                route: "Albufeira → Benagil → Lagos (Aprox. 1h - 50 km)",
+                plan: `
+                    <p class="mb-4">¡El día más esperado! Hoy visitaréis la famosa cueva de Benagil y os dirigiréis a Lagos, una base perfecta con playas increíbles y un ambiente genial.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana:</strong> Conducid hasta la zona de Benagil. La mejor forma de ver la cueva es con un <strong>tour en barco, kayak o paddle surf</strong> que habréis reservado previamente. Los tours salen desde Portimão, Ferragudo o la propia playa de Benagil. El kayak/paddle surf os permite desembarcar dentro de la cueva.</li>
+                        <li><strong>Mediodía:</strong> Después del tour, comed por la zona. Luego, visitad la <strong>Praia da Marinha</strong>, considerada una de las playas más bonitas del mundo, con formaciones rocosas impresionantes.</li>
+                        <li><strong>Tarde:</strong> Viaje a <strong>Lagos</strong>, check-in. Dad un primer paseo por su animado centro histórico.</li>
+                        <li><strong>Noche:</strong> Disfrutad de la vibrante vida nocturna y la enorme oferta de restaurantes en Lagos.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">Cerca de Benagil, <strong>"O Litoral"</strong>. En Lagos, <strong>"Casa do Prego"</strong> (tapas y "pregos" - bocadillos de carne), <strong>"A Forja"</strong> (pescado a la brasa, auténtico y siempre lleno) o <strong>"Real Portuguese Cuisine"</strong>.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si el mar está muy agitado y se cancelan los tours a Benagil, podéis hacer la ruta de senderismo de los <strong>Sete Vales Suspensos (Siete Valles Colgantes)</strong>, que recorre los acantilados por encima de la cueva y ofrece vistas espectaculares.</p>
+                `
+            },
+            day4: {
+                title: "Día 4 (24): Lagos, Sagres y el 'Fin del Mundo'",
+                route: "Base en Lagos, excursión a la Costa Vicentina",
+                plan: `
+                    <p class="mb-4">Día para explorar las maravillas naturales alrededor de Lagos y llegar hasta el punto más suroccidental de Europa, un lugar con una energía especial.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana:</strong> Visitad la <strong>Ponta da Piedade</strong> en Lagos. Podéis recorrer los senderos por los acantilados para tener vistas de infarto o tomar un pequeño barco desde el puerto de Lagos para ver las grutas y formaciones desde el agua.</li>
+                        <li><strong>Mediodía:</strong> Almorzad en Lagos y luego conducid hacia el oeste.</li>
+                        <li><strong>Tarde:</strong> Explorad <strong>Sagres</strong>. Visitad su impresionante <strong>Fortaleza</strong> y sentid la fuerza del viento y el océano. Después, dirigíos al <strong>Cabo de São Vicente</strong>, conocido antiguamente como el "fin del mundo".</li>
+                        <li><strong>Atardecer:</strong> El atardecer desde el Cabo de São Vicente es absolutamente mágico e inolvidable. ¡Llevad algo de abrigo, suele hacer viento!</li>
+                        <li><strong>Noche:</strong> Regreso a Lagos para cenar.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">En Sagres, probad <strong>"A Tasca"</strong> o <strong>"Retiro do Pescador"</strong>. Tienen buen marisco y ambiente de pueblo de pescadores.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si preferís un día de surf o playa más salvaje, en lugar de la fortaleza, pasad la tarde en la <strong>Praia do Amado</strong> o la <strong>Praia da Bordeira</strong> en la costa oeste, famosas por sus olas y paisajes espectaculares.</p>
+                `
+            },
+            day5: {
+                title: "Día 5 (25): Interior del Algarve y vuelta hacia el este",
+                route: "Lagos → Silves → Vila Real de Santo António (Aprox. 1h 45m - 120 km)",
+                plan: `
+                    <p class="mb-4">Hoy toca un cambio de aires. Dejamos la costa para descubrir el encanto del interior del Algarve antes de pasar la última noche en la frontera con España.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana:</strong> Salida de Lagos hacia <strong>Silves</strong>, la antigua capital árabe del Algarve. Visitad su imponente <strong>castillo de arenisca roja</strong>, el mejor conservado de la región. Pasead por sus calles empedradas.</li>
+                        <li><strong>Mediodía:</strong> Almuerzo en Silves, disfrutando de la gastronomía local.</li>
+                        <li><strong>Tarde:</strong> Conducid hacia el este hasta <strong>Vila Real de Santo António</strong>, justo en la desembocadura del Guadiana, frontera con Ayamonte. Esta ciudad tiene una curiosa planificación pombalina (calles en cuadrícula).</li>
+                        <li><strong>Noche:</strong> Disfrutad de una última cena tranquila en Portugal. Pasead por la ribera del río.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">En Silves, <strong>"Café Inglês"</strong> (justo debajo del castillo, con vistas y buen ambiente). En Vila Real, <strong>"Restaurante da Associação Naval"</strong> ofrece buen pescado con vistas al río.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si no os apetece el interior, podéis dedicar el día a explorar alguna playa que os haya quedado pendiente, como <strong>Praia do Camilo</strong> (Lagos) o la Ilha de Tavira, y luego conducir directamente al alojamiento de la última noche.</p>
+                `
+            },
+            day6: {
+                title: "Día 6 (26): Despedida de Portugal y regreso a Málaga",
+                route: "Vila Real de Santo António → Málaga (Aprox. 3h - 300 km)",
+                plan: `
+                    <p class="mb-4">Última mañana para disfrutar de la brisa portuguesa antes de emprender el camino de vuelta a casa.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>Mañana:</strong> Desayunad tranquilamente. Podéis dar un último paseo por Vila Real o cruzar en el ferry a <strong>Ayamonte</strong> (España) para una visita rápida (es un trayecto de 15 minutos). Comprad algunos recuerdos o productos locales como conservas o dulces.</li>
+                        <li><strong>Mediodía:</strong> Emprended el viaje de regreso a Málaga. El objetivo es estar allí a la hora que necesitéis.</li>
+                    </ul>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
+                    <p class="text-[#785A3E]">Podéis comer algo en Ayamonte antes de salir, famoso por sus tapas, o parar a mitad de camino en alguna venta en la autovía.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
+                    <p class="text-[#785A3E]">Si salís con tiempo, podéis hacer una parada en el <strong>Parque Nacional de Doñana</strong> (zona de Huelva) para un breve paseo por alguno de sus senderos accesibles antes de continuar hacia Málaga.</p>
+                `
+            }
+        };
 
-            <div class="ticket-info">
-                <h4 class="font-bold">🎟️ Tickets y Alquileres:</h4>
-                <p><strong>Acceso a Benagil:</strong> Alquilar un kayak o paddle surf en la playa (unos 20-30€/hora) es la mejor forma de vivir la experiencia. Id a primera hora para evitar las multitudes.</p>
-            </div>
-        </section>
+        const tabsContainer = document.getElementById('tabs');
+        const contentDisplay = document.getElementById('content-display');
+        const checklistItems = document.querySelectorAll('.checklist-item');
 
-        <!-- Día 3: Lisboa Centro -->
-        <section class="day-card" id="dia3">
-            <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 3 (Domingo, 23 Mar): El Alma de Lisboa, de Alfama a la Baixa</h2>
-                <p class="text-lg text-gray-500">Descubriendo la ciudad que resurgió de sus cenizas.</p>
-            </div>
-            
-            <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">09:30h:</strong> Coger el Tranvía 28 para subir a Alfama.</li>
-                    <li><strong class="font-semibold text-sky-800">10:00h - 13:30h:</strong> Explorar Alfama: Miradores Portas do Sol y Santa Luzia, y bajar callejeando hasta la Catedral.</li>
-                    <li><strong class="font-semibold text-sky-800">13:30h:</strong> Comida en una tasca de Alfama.</li>
-                    <li><strong class="font-semibold text-sky-800">15:30h:</strong> Paseo por la Baixa Pombalina: Praça do Comércio, Rua Augusta, Praça do Rossio.</li>
-                    <li><strong class="font-semibold text-sky-800">18:00h:</strong> Ver las ruinas del Convento do Carmo y el Elevador de Santa Justa.</li>
-                    <li><strong class="font-semibold text-sky-800">20:30h:</strong> Cena en el Bairro Alto o Chiado.</li>
-                </ul>
-            </div>
-            
-             <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">Hoy el día tiene dos caras. Por la mañana, el <a href="#curiosidad-tranvia-28" class="curiosity-link">tranvía 28</a> os dejará en Alfama, el barrio que, por estar en una colina de roca sólida, sobrevivió al gran terremoto de 1755. Es la Lisboa medieval en estado puro. Por la tarde, bajaréis a la "nueva" Lisboa, la <strong class="font-semibold">Baixa Pombalina</strong>, reconstruida por el Marquês de Pombal con un diseño antisísmico pionero. El punto culminante es el <a href="#curiosidad-convento-carmo" class="curiosity-link">Convento do Carmo</a>. Sus arcos abiertos al cielo son la cicatriz de la catástrofe, un recordatorio silencioso y poderoso del día que cambió Lisboa para siempre.</p>
-        </section>
+        function renderDay(dayKey) {
+            const dayData = itineraryData[dayKey];
+            if (!dayData) return;
+
+            contentDisplay.style.opacity = 0;
+
+            setTimeout(() => {
+                const contentHTML = `
+                <div class="content-card">
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#4A3F35] mb-2">${dayData.title}</h3>
+                    <p class="text-md text-[#A58258] font-semibold mb-4">${dayData.route}</p>
+                    ${dayData.plan}
+                </div>
+            `;
+                contentDisplay.innerHTML = contentHTML;
+                contentDisplay.style.opacity = 1;
+            }, 300);
+
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('tab-active');
+                tab.classList.add('tab-inactive');
+                if (tab.dataset.day === dayKey) {
+                    tab.classList.add('tab-active');
+                    tab.classList.remove('tab-inactive');
+                }
+            });
+        }
         
-        <!-- Día 4: Belém y Lisboa Moderna -->
-        <section class="day-card" id="dia4">
-             <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 4 (Lunes, 24 Mar): Gloria Imperial y Vanguardia Creativa</h2>
-                 <p class="text-lg text-gray-500">De la grandiosidad de Belém a la modernidad de LX Factory.</p>
-            </div>
-            
-             <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">09:30h:</strong> Coger el Tranvía 15E hacia Belém.</li>
-                    <li><strong class="font-semibold text-sky-800">10:00h - 13:30h:</strong> Explorar Belém: Monasterio de los Jerónimos, Torre de Belém y Padrão dos Descobrimentos.</li>
-                    <li><strong class="font-semibold text-sky-800">13:30h:</strong> Parada obligatoria en "Pastéis de Belém".</li>
-                    <li><strong class="font-semibold text-sky-800">14:00h:</strong> Comida por la zona de Belém o en LX Factory.</li>
-                    <li><strong class="font-semibold text-sky-800">16:00h:</strong> Tarde de arte y diseño en LX Factory.</li>
-                    <li><strong class="font-semibold text-sky-800">19:00h:</strong> Regreso al centro para descansar y cenar.</li>
-                </ul>
-            </div>
-            
-             <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">Hoy viajaréis a la época dorada de Portugal en Belém. Aquí todo es monumental porque se construyó con el dinero del comercio de especias. El <strong class="font-semibold">Monasterio de los Jerónimos</strong> es la joya del estilo manuelino, una arquitectura que decora la piedra con motivos marinos. La <a href="#curiosidad-torre-belem" class="curiosity-link">Torre de Belém</a> era la puerta de entrada y salida del Nuevo Mundo. Después de probar los legendarios <a href="#curiosidad-pasteis-belem" class="curiosity-link">Pastéis de Belém</a>, cambiaréis de siglo. Visitaréis <a href="#curiosidad-lx-factory" class="curiosity-link">LX Factory</a>, una gigantesca fábrica del XIX, ahora renacida como el epicentro de la creatividad lisboeta. Es el lugar donde el óxido industrial se mezcla con el arte urbano y el diseño de vanguardia.</p>
+        Object.keys(itineraryData).forEach((key, index) => {
+            const dayNum = index + 1;
+            const tab = document.createElement('button');
+            tab.textContent = `Día ${dayNum}`;
+            tab.dataset.day = key;
+            tab.className = 'tab px-4 py-2 rounded-md font-medium transition-colors duration-300 text-sm md:text-base';
+            tab.addEventListener('click', () => renderDay(key));
+            tabsContainer.appendChild(tab);
+        });
 
-            <div class="ticket-info">
-                <h4 class="font-bold">🎟️ Tickets y Alquileres:</h4>
-                <p><strong>Tickets online:</strong> Para el Monasterio (claustro) y la Torre de Belém, compradlos siempre online en la web oficial para evitar colas de más de una hora.</p>
-            </div>
-        </section>
-        
-        <!-- Día 5: Sintra -->
-        <section class="day-card" id="dia5">
-            <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 5 (Martes, 25 Mar): Sintra, la Colina Sagrada de los Sueños</h2>
-                <p class="text-lg text-gray-500">Un viaje a un mundo de fantasía, esoterismo y realeza.</p>
-            </div>
-             <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">09:00h:</strong> Tren desde la Estación de Rossio a Sintra.</li>
-                    <li><strong class="font-semibold text-sky-800">10:00h - 13:30h:</strong> Exploración mística de la Quinta da Regaleira.</li>
-                    <li><strong class="font-semibold text-sky-800">13:30h:</strong> Comida en el centro de Sintra y probar los dulces típicos.</li>
-                    <li><strong class="font-semibold text-sky-800">15:00h:</strong> Coger el bus 434 hacia el Palacio da Pena.</li>
-                    <li><strong class="font-semibold text-sky-800">15:30h - 18:00h:</strong> Visita al colorido Palacio da Pena.</li>
-                    <li><strong class="font-semibold text-sky-800">18:30h:</strong> Tren de regreso a Lisboa para la última noche.</li>
-                </ul>
-            </div>
-            
-            
+        checklistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('completed');
+            });
+        });
 
-             <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">Lord Byron dijo que Sintra era un "glorioso Edén", y no se equivocaba. Hoy visitaréis dos mundos oníricos. Primero, la <a href="#curiosidad-quinta-regaleira" class="curiosity-link">Quinta da Regaleira</a>, el sueño esotérico de un millonario excéntrico. El descenso al Pozo Iniciático es un rito de paso. Después, subiréis al cielo en el <a href="#curiosidad-palacio-pena" class="curiosity-link">Palacio da Pena</a>. Este no es un castillo medieval, es la fantasía romántica del siglo XIX hecha realidad por el rey-artista Fernando II. Es un collage de estilos y colores que desafía la lógica, un faro de ensueño.</p>
-            
-             <div class="ticket-info">
-                <h4 class="font-bold">🎟️ Tickets y Alquileres:</h4>
-                <p><strong>¡COMPRA ONLINE OBLIGATORIA Y CON ANTELACIÓN!</strong> Las entradas para Pena y Regaleira se agotan. Compradlas en sus webs oficiales con días de antelación. Para Pena, se elige una franja horaria de entrada, ¡sed puntuales!</p>
-            </div>
-        </section>
-        
-        <!-- Día 6: Vuelta a Málaga -->
-        <section class="day-card" id="dia6">
-             <div class="day-header border-b pb-4 mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">Día 6 (Miércoles, 26 Mar): Regreso a Casa</h2>
-                <p class="text-lg text-gray-500">Un último pastel de nata y fin de la aventura.</p>
-            </div>
-            <div class="agenda-box">
-                <h3 class="font-bold text-xl mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Agenda del Día</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong class="font-semibold text-sky-800">06:00h - 06:30h:</strong> Salida de Lisboa. Es un madrugón necesario.</li>
-                    <li><strong class="font-semibold text-sky-800">13:00h - 14:00h (hora española):</strong> Llegada estimada a Málaga.</li>
-                </ul>
-            </div>
-             <h3 class="activity-title mt-8 text-2xl font-semibold">Vuestro Guía Personal:</h3>
-            <p class="text-gray-700 leading-relaxed">El viaje llega a su fin. Toca madrugar para emprender el camino de vuelta. Mientras cruzáis de nuevo la frontera, recordaréis los acantilados dorados, el eco del fado, el sabor a canela de un pastel de nata y las historias de reyes, poetas y navegantes. ¡Habrá sido una gran aventura! ¡Buen viaje de vuelta a Málaga!</p>
-        </section>
-        
-        <!-- SECCIÓN DE CURIOSIDADES -->
-        <section id="curiosidades" class="curiosity-section">
-            <h2 class="text-3xl font-bold text-center mb-6">Rincón de Curiosidades 🧐</h2>
-            <article id="curiosidad-mercado-escravos" class="curiosity-box"> <h3 class="font-bold text-lg">El Mercado de Escravos</h3> <p>Fue el primer mercado de esclavos africanos en Europa, inaugurado en 1444. Hoy es un museo que busca educar sobre ese pasado.</p> <a href="#dia1" class="back-link">Volver al Día 1</a> </article>
-            <article id="curiosidad-ponta-piedade" class="curiosity-box"> <h3 class="font-bold text-lg">Ponta da Piedade y sus Nombres</h3> <p>Los pescadores locales han bautizado las rocas con nombres imaginativos: "El Elefante", "La Cocina", "El Camello" o "El Arco del Triunfo".</p> <a href="#dia1" class="back-link">Volver al Día 1</a> </article>
-            <article id="curiosidad-benagil" class="curiosity-box"> <h3 class="font-bold text-lg">La Cueva de Benagil o "El Ojo"</h3> <p>El impresionante agujero en el techo es el resultado de miles de años de erosión: la lluvia disolvió la roca desde arriba mientras el mar la erosionaba desde abajo, hasta que el techo colapsó.</p> <a href="#dia2" class="back-link">Volver al Día 2</a> </article>
-            <article id="curiosidad-elevador-santa-justa" class="curiosity-box"> <h3 class="font-bold text-lg">El Elevador de Santa Justa</h3> <p>Fue diseñado por un discípulo de Gustave Eiffel, por eso recuerda tanto a la Torre Eiffel. En su día, funcionaba a vapor.</p> <a href="#dia3" class="back-link">Volver al Día 3</a> </article>
-            <article id="curiosidad-convento-carmo" class="curiosity-box"> <h3 class="font-bold text-lg">El Convento do Carmo</h3> <p>Durante el terremoto de 1755, el techo se derrumbó, pero su valiosa biblioteca sobrevivió. Hoy, el esqueleto de la iglesia es un museo al aire libre.</p> <a href="#dia3" class="back-link">Volver al Día 3</a> </article>
-            <article id="curiosidad-tranvia-28" class="curiosity-box"> <h3 class="font-bold text-lg">El Tranvía 28</h3> <p>Estos tranvías de la década de 1930 son los únicos capaces de subir las pendientes y tomar las curvas cerradas de los barrios antiguos.</p> <a href="#dia3" class="back-link">Volver al Día 3</a> </article>
-            <article id="curiosidad-torre-belem" class="curiosity-box"> <h3 class="font-bold text-lg">La Torre de Belém y el Rinoceronte</h3> <p>En una de las garitas hay una gárgola con forma de rinoceronte, la primera representación de este animal en Europa, esculpida en honor a uno que el rey Manuel I recibió como regalo.</p> <a href="#dia4" class="back-link">Volver al Día 4</a> </article>
-            <article id="curiosidad-pasteis-belem" class="curiosity-box"> <h3 class="font-bold text-lg">Pastéis de Belém y la Receta Secreta</h3> <p>La receta original fue creada por los monjes del Monasterio de los Jerónimos. Se dice que hoy solo tres personas en el mundo conocen la fórmula.</p> <a href="#dia4" class="back-link">Volver al Día 4</a> </article>
-             <article id="curiosidad-lx-factory" class="curiosity-box"> <h3 class="font-bold text-lg">LX Factory</h3> <p>Este espacio fue, en 1846, la "Companhia de Fiação e Tecidos Lisbonense", uno de los complejos industriales más importantes de la ciudad, ahora reconvertido en un hervidero creativo.</p> <a href="#dia4" class="back-link">Volver al Día 4</a> </article>
-            <article id="curiosidad-quinta-regaleira" class="curiosity-box"> <h3 class="font-bold text-lg">La Quinta da Regaleira y la Masonería</h3> <p>El Pozo Iniciático no era para sacar agua; es una "torre invertida" que simboliza el viaje de la muerte al renacimiento, descendiendo a la oscuridad para ascender a la luz.</p> <a href="#dia5" class="back-link">Volver al Día 5</a> </article>
-            <article id="curiosidad-palacio-pena" class="curiosity-box"> <h3 class="font-bold text-lg">El Palacio da Pena</h3> <p>Es la máxima expresión del Romanticismo del siglo XIX. Fue un encargo del rey-artista Fernando II, quien quiso mezclar todos los estilos arquitectónicos en un castillo de cuento de hadas.</p> <a href="#dia5" class="back-link">Volver al Día 5</a> </article>
-        </section>
-    </main>
-    <footer class="bg-gray-800 text-white text-center py-6 mt-8">
-        <p>&copy; 2025 - ¡Disfrutad de una aventura inolvidable!</p>
-    </footer>
+        renderDay('day1');
+
+    </script>
 </body>
 </html>
