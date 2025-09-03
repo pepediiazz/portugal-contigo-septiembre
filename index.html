@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta por el Algarve: Málaga a Portugal</title>
+    <title>Itinerario Algarve Salvaje</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chosen Palette: Warm Neutrals -->
     <!-- Application Structure Plan: The application is designed as a single-page interactive itinerary with a tabbed navigation system for each day. This structure was chosen to break down the 6-day trip into manageable, focused sections, preventing the user from being overwhelmed by a long, scrolling document. A prominent "Pre-Trip Checklist" is placed at the top to highlight immediate, actionable tasks. The user flow is simple: review the checklist, then click on a day's tab to dynamically load its specific route, activities, food recommendations, and a "Plan B." This approach provides a clear, organized, and user-friendly way to explore the travel plan. -->
@@ -42,30 +42,34 @@
 
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
         <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#4A3F35]">Ruta por el Algarve</h1>
-            <p class="text-lg text-[#785A3E] mt-2">Un viaje en coche de 6 días desde Málaga (21 - 26)</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#4A3F35]">Itinerario Algarve Salvaje</h1>
+            <p class="text-lg text-[#785A3E] mt-2">Un viaje en coche de 6 días (21 - 26 de Septiembre)</p>
         </header>
 
         <main>
             <section id="checklist" class="mb-8">
                  <div class="content-card">
-                    <h2 class="text-2xl font-bold text-[#4A3F35] mb-4 border-b-2 border-[#EAE1D6] pb-2">Checklist de Reservas y Tickets</h2>
-                    <p class="text-[#785A3E] mb-4">¡Importante! Reserva esto antes de salir para aseguraros los mejores precios y disponibilidad.</p>
-                    <ul class="space-y-3">
-                        <li class="checklist-item flex items-center cursor-pointer">
+                     <h2 class="text-2xl font-bold text-[#4A3F35] mb-4 border-b-2 border-[#EAE1D6] pb-2">Checklist de Reservas y Tickets</h2>
+                     <p class="text-[#785A3E] mb-4">¡Importante! Reserva esto antes de salir para aseguraros los mejores precios y disponibilidad.</p>
+                     <ul class="space-y-3">
+                         <li class="checklist-item flex items-center cursor-pointer">
+                             <span class="mr-3 text-[#A58258]">🎟️</span>
+                             <span class="flex-grow"><strong>Tour en Kayak/Paddle Surf a las Cuevas de Benagil (Día 3):</strong> Es la atracción principal. Se agota rápido, ¡reserva obligatoria!</span>
+                         </li>
+                          <li class="checklist-item flex items-center cursor-pointer">
+                             <span class="mr-3 text-[#A58258]">🎟️</span>
+                             <span class="flex-grow"><strong>Tour en Kayak en Ponta da Piedade (Día 4):</strong> Otra actividad muy popular que requiere reserva previa para asegurar tu plaza.</span>
+                         </li>
+                         <li class="checklist-item flex items-center cursor-pointer">
+                             <span class="mr-3 text-[#A58258]">🏨</span>
+                             <span class="flex-grow"><strong>Alojamientos:</strong> Reservad las noches en Tavira, Albufeira, Lagos y Sagres/Vila do Bispo para tener un campamento base.</span>
+                         </li>
+                         <li class="checklist-item flex items-center cursor-pointer">
                             <span class="mr-3 text-[#A58258]">🎟️</span>
-                            <span class="flex-grow"><strong>Tour en barco/kayak a las Cuevas de Benagil (Día 3):</strong> Es la atracción principal. Se agota rápido, especialmente en temporada alta. Buscad en Portimão o en la propia playa de Benagil.</span>
+                            <span class="flex-grow"><strong>Entradas Aquashow Park (Día 3):</strong> Compra las entradas online para evitar colas y posiblemente obtener un mejor precio.</span>
                         </li>
-                        <li class="checklist-item flex items-center cursor-pointer">
-                            <span class="mr-3 text-[#A58258]">🏨</span>
-                            <span class="flex-grow"><strong>Alojamientos:</strong> Reservad las noches en Tavira, Albufeira/Lagos para tener un campamento base. Lagos es una excelente opción para varias noches.</span>
-                        </li>
-                        <li class="checklist-item flex items-center cursor-pointer">
-                            <span class="mr-3 text-[#A58258]">🏰</span>
-                             <span class="flex-grow"><strong>Entradas a monumentos (opcional):</strong> Si queréis visitar el Castillo de Silves o la Fortaleza de Sagres, podéis comprar las entradas online para evitar colas, aunque no suele ser imprescindible.</span>
-                        </li>
-                    </ul>
-                </div>
+                     </ul>
+                 </div>
             </section>
             
             <div id="tabs" class="flex flex-wrap justify-center gap-2 mb-6">
@@ -79,109 +83,109 @@
     <script>
         const itineraryData = {
             day1: {
-                title: "Día 1 (21): De Málaga a Tavira, la Venecia del Algarve",
-                route: "Málaga → Tavira (Aprox. 3h 30m - 330 km)",
+                title: "Día 1 (21 Sept): Tavira y su Isla",
                 plan: `
-                    <p class="mb-4">Salid temprano de Málaga para aprovechar el día. La primera parada es <strong>Tavira</strong>, una de las ciudades más encantadoras y auténticas del Algarve. Haced el check-in en vuestro alojamiento y preparaos para explorar.</p>
+                    <p class="mb-4">El viaje arranca en <strong>Tavira</strong>, una de las joyas del Algarve. Un día para combinar playa, historia y un atardecer inolvidable.</p>
                     <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana/Mediodía:</strong> Llegada y check-in. Come algo ligero al llegar.</li>
-                        <li><strong>Tarde:</strong> Pasead por el centro histórico de Tavira. Cruzad el <strong>Puente Romano</strong> (de origen romano pero reconstruido), subid al <strong>Castillo de Tavira</strong> para disfrutar de unas vistas panorámicas espectaculares de la ciudad y sus tejados.</li>
-                        <li><strong>Atardecer/Noche:</strong> Relajaos en la Praça da República. Cenad en el casco antiguo, disfrutando del ambiente tranquilo y romántico.</li>
+                        <li><strong>13:00:</strong> Llegada a Tavira y ferry a <strong>Ilha de Tavira</strong>.</li>
+                        <li><strong>13:30 – 16:00:</strong> Tiempo de playa y relax en la isla.</li>
+                        <li><strong>16:00:</strong> Ferry de vuelta al centro.</li>
+                        <li><strong>16:30 – 17:15:</strong> Visita al <strong>Castelo de Tavira</strong> para disfrutar de sus vistas panorámicas.</li>
+                        <li><strong>17:15 – 17:45:</strong> Café o helado en la animada <strong>Praça da República</strong>.</li>
+                        <li><strong>17:45 – 18:45:</strong> Paseo por el icónico <strong>Puente Romano</strong> y la ribera del río Gilão.</li>
+                        <li><strong>18:45 – 19:29:</strong> Caminata hacia el <strong>Forte do Rato</strong>.</li>
+                        <li><strong>19:29:</strong> <strong>Atardecer</strong> desde el Forte do Rato.</li>
+                        <li><strong>19:45 en adelante:</strong> Cena y paseo nocturno por el encantador centro histórico.</li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">Buscad tascas locales. <strong>"Casa Simão"</strong> o <strong>"Restaurante O Castelo"</strong> (cerca del castillo) ofrecen buen pescado fresco y comida tradicional a precios razonables.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si el tiempo no acompaña para pasear, podéis visitar el <strong>Mercado da Ribeira</strong> (ahora un espacio gastronómico y cultural) o la <strong>Igreja da Misericórdia</strong>, una joya del Renacimiento.</p>
                 `
             },
             day2: {
-                title: "Día 2 (22): Faro y el bullicio de Albufeira",
-                route: "Tavira → Faro → Albufeira (Aprox. 1h 15m - 75 km)",
+                title: "Día 2 (22 Sept): Faro y Albufeira",
                 plan: `
-                    <p class="mb-4">Hoy exploraréis la capital del Algarve, Faro, antes de dirigiros a una de las zonas más animadas, Albufeira, donde podéis establecer vuestra base para las próximas noches.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <p class="mb-4">Exploramos la capital del Algarve, Faro, por la mañana y nos sumergimos en el vibrante ambiente de Albufeira por la tarde.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">Faro – Mañana:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana:</strong> Conducid hasta <strong>Faro</strong>. Aparcad cerca del centro histórico y explorad la <strong>"Cidade Velha"</strong> (casco antiguo amurallado). Entrad por el Arco da Vila, visitad la Catedral (Sé de Faro) y subid a su torre para tener unas vistas impresionantes de la Ría Formosa.</li>
-                        <li><strong>Mediodía:</strong> Almorzad en Faro antes de continuar el viaje.</li>
-                        <li><strong>Tarde:</strong> Viaje a <strong>Albufeira</strong>. Haced check-in y bajad a la playa. Podéis elegir entre la <strong>Praia dos Pescadores</strong> (más céntrica y animada) o la <strong>Praia da Oura</strong> (famosa por su vida nocturna).</li>
-                        <li><strong>Noche:</strong> Cenad en el casco antiguo de Albufeira, que es más tradicional y con más encanto que la zona nueva.</li>
+                        <li><strong>09:30 – 10:15:</strong> Traslado a Faro.</li>
+                        <li><strong>10:15 – 10:30:</strong> Entrada al casco antiguo por el <strong>Arco da Vila</strong>.</li>
+                        <li><strong>10:30 – 11:30:</strong> Recorrido por la <strong>Cidade Velha</strong> (ciudad vieja amurallada).</li>
+                        <li><strong>11:30 – 12:00:</strong> Visita a la <strong>Catedral de Faro</strong> y subida a su torre para vistas de la Ría Formosa.</li>
+                        <li><strong>12:00 – 12:45:</strong> Visita a la <strong>Iglesia do Carmo</strong> y su impactante <strong>Capela dos Ossos</strong> (Capilla de los Huesos).</li>
+                        <li><strong>12:45 – 13:30:</strong> Paseo rápido y café por el centro.</li>
+                        <li><strong>13:30 – 15:00:</strong> Almuerzo en Faro.</li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">En Faro, <strong>"Tasca do Ricky"</strong>. En Albufeira, evitad los sitios más turísticos de la plaza principal. Buscad en las calles secundarias, por ejemplo <strong>"O Catraio"</strong> o <strong>"Restaurante O Penedo"</strong> para pescado fresco.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si Faro no os llama, podéis ir directamente a <strong>Vilamoura</strong> para ver su lujoso puerto deportivo antes de llegar a Albufeira. O si preferís playa, la <strong>Praia da Falésia</strong> es una opción espectacular con sus acantilados rojizos.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">Albufeira – Tarde:</h4>
+                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>15:00 – 16:00:</strong> Traslado a Albufeira (~1 h).</li>
+                        <li><strong>16:00 – 19:00:</strong> Tarde de playa en <strong>Praia dos Pescadores</strong> (ambiente familiar) o <strong>Praia da Oura</strong> (más animada).</li>
+                        <li><strong>19:00 – 19:30:</strong> Subida al <strong>Mirador Pau da Bandeira</strong> para fotos panorámicas.</li>
+                        <li><strong>20:00 en adelante:</strong> Cena en el casco antiguo y paseo nocturno.</li>
+                    </ul>
                 `
             },
             day3: {
-                title: "Día 3 (23): Cuevas de Benagil y la magia de Lagos",
-                route: "Albufeira → Benagil → Lagos (Aprox. 1h - 50 km)",
+                title: "Día 3 (23 Sept): Benagil y Aquashow",
                 plan: `
-                    <p class="mb-4">¡El día más esperado! Hoy visitaréis la famosa cueva de Benagil y os dirigiréis a Lagos, una base perfecta con playas increíbles y un ambiente genial.</p>
+                    <p class="mb-4">Un día de máxima adrenalina: la icónica cueva de Benagil por la mañana y un chapuzón de diversión en el parque acuático por la tarde.</p>
                     <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana:</strong> Conducid hasta la zona de Benagil. La mejor forma de ver la cueva es con un <strong>tour en barco, kayak o paddle surf</strong> que habréis reservado previamente. Los tours salen desde Portimão, Ferragudo o la propia playa de Benagil. El kayak/paddle surf os permite desembarcar dentro de la cueva.</li>
-                        <li><strong>Mediodía:</strong> Después del tour, comed por la zona. Luego, visitad la <strong>Praia da Marinha</strong>, considerada una de las playas más bonitas del mundo, con formaciones rocosas impresionantes.</li>
-                        <li><strong>Tarde:</strong> Viaje a <strong>Lagos</strong>, check-in. Dad un primer paseo por su animado centro histórico.</li>
-                        <li><strong>Noche:</strong> Disfrutad de la vibrante vida nocturna y la enorme oferta de restaurantes en Lagos.</li>
+                        <li><strong>07:30:</strong> Salida desde Albufeira hacia Benagil para empezar temprano.</li>
+                        <li><strong>08:00 – 10:00:</strong> Aventura en <strong>Kayak o Paddle Surf en la cueva de Benagil</strong> (¡Reserva obligatoria!).</li>
+                        <li><strong>10:30 – 11:15:</strong> Traslado a <strong>Aquashow Park</strong> en Quarteira.</li>
+                        <li><strong>11:15 – 17:00:</strong> ¡A disfrutar de las atracciones de Aquashow Park! (Recomendable reservar entradas online).</li>
+                        <li><strong>17:00 en adelante:</strong> Traslado a <strong>Lagos</strong> para hacer check-in y pasar la noche.</li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">Cerca de Benagil, <strong>"O Litoral"</strong>. En Lagos, <strong>"Casa do Prego"</strong> (tapas y "pregos" - bocadillos de carne), <strong>"A Forja"</strong> (pescado a la brasa, auténtico y siempre lleno) o <strong>"Real Portuguese Cuisine"</strong>.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si el mar está muy agitado y se cancelan los tours a Benagil, podéis hacer la ruta de senderismo de los <strong>Sete Vales Suspensos (Siete Valles Colgantes)</strong>, que recorre los acantilados por encima de la cueva y ofrece vistas espectaculares.</p>
                 `
             },
             day4: {
-                title: "Día 4 (24): Lagos, Sagres y el 'Fin del Mundo'",
-                route: "Base en Lagos, excursión a la Costa Vicentina",
+                title: "Día 4 (24 Sept): Lagos a Fondo",
                 plan: `
-                    <p class="mb-4">Día para explorar las maravillas naturales alrededor de Lagos y llegar hasta el punto más suroccidental de Europa, un lugar con una energía especial.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
+                    <p class="mb-4">Dedicamos el día completo a explorar los impresionantes paisajes de Lagos, desde sus grutas marinas hasta sus acantilados de infarto.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">Mañana:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana:</strong> Visitad la <strong>Ponta da Piedade</strong> en Lagos. Podéis recorrer los senderos por los acantilados para tener vistas de infarto o tomar un pequeño barco desde el puerto de Lagos para ver las grutas y formaciones desde el agua.</li>
-                        <li><strong>Mediodía:</strong> Almorzad en Lagos y luego conducid hacia el oeste.</li>
-                        <li><strong>Tarde:</strong> Explorad <strong>Sagres</strong>. Visitad su impresionante <strong>Fortaleza</strong> y sentid la fuerza del viento y el océano. Después, dirigíos al <strong>Cabo de São Vicente</strong>, conocido antiguamente como el "fin del mundo".</li>
-                        <li><strong>Atardecer:</strong> El atardecer desde el Cabo de São Vicente es absolutamente mágico e inolvidable. ¡Llevad algo de abrigo, suele hacer viento!</li>
-                        <li><strong>Noche:</strong> Regreso a Lagos para cenar.</li>
+                        <li><strong>08:00 – 11:00:</strong> Excursión en <strong>Kayak en Ponta da Piedade</strong> para explorar sus grutas y formaciones rocosas (¡Reserva obligatoria!).</li>
+                        <li><strong>11:15 – 12:30:</strong> Recorrer el tramo más espectacular de la <strong>Ruta de los 7 Valles Colgantes</strong> (ida y vuelta corta para disfrutar de las vistas).</li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">En Sagres, probad <strong>"A Tasca"</strong> o <strong>"Retiro do Pescador"</strong>. Tienen buen marisco y ambiente de pueblo de pescadores.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si preferís un día de surf o playa más salvaje, en lugar de la fortaleza, pasad la tarde en la <strong>Praia do Amado</strong> o la <strong>Praia da Bordeira</strong> en la costa oeste, famosas por sus olas y paisajes espectaculares.</p>
+                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">Mediodía:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                         <li><strong>12:30 – 14:00:</strong> Relax en <strong>Praia do Camilo</strong> y almuerzo en un restaurante cercano.</li>
+                    </ul>
+                     <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">Tarde-Noche:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
+                        <li><strong>14:00 – 16:30:</strong> Paseo por los <strong>senderos superiores de Ponta da Piedade</strong> para sacar fotos y disfrutar de las vistas panorámicas.</li>
+                        <li><strong>16:30 – 19:00:</strong> Explorar el <strong>centro histórico de Lagos</strong>, con una pausa para un café o un helado.</li>
+                        <li><strong>19:00 – 20:30:</strong> Cena en el animado casco antiguo.</li>
+                    </ul>
                 `
             },
             day5: {
-                title: "Día 5 (25): Interior del Algarve y vuelta hacia el este",
-                route: "Lagos → Silves → Vila Real de Santo António (Aprox. 1h 45m - 120 km)",
+                title: "Día 5 (25 Sept): Costa Vicentina y Sagres",
                 plan: `
-                    <p class="mb-4">Hoy toca un cambio de aires. Dejamos la costa para descubrir el encanto del interior del Algarve antes de pasar la última noche en la frontera con España.</p>
+                    <p class="mb-4">Nos adentramos en el lado más salvaje del Algarve, la Costa Vicentina, culminando en el punto más suroccidental de Europa para un atardecer mágico.</p>
                     <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana:</strong> Salida de Lagos hacia <strong>Silves</strong>, la antigua capital árabe del Algarve. Visitad su imponente <strong>castillo de arenisca roja</strong>, el mejor conservado de la región. Pasead por sus calles empedradas.</li>
-                        <li><strong>Mediodía:</strong> Almuerzo en Silves, disfrutando de la gastronomía local.</li>
-                        <li><strong>Tarde:</strong> Conducid hacia el este hasta <strong>Vila Real de Santo António</strong>, justo en la desembocadura del Guadiana, frontera con Ayamonte. Esta ciudad tiene una curiosa planificación pombalina (calles en cuadrícula).</li>
-                        <li><strong>Noche:</strong> Disfrutad de una última cena tranquila en Portugal. Pasead por la ribera del río.</li>
+                        <li><strong>Mañana:</strong> Salida tranquila desde Lagos hacia el oeste. Primera parada en <strong>Praia do Beliche</strong> para admirar sus acantilados.</li>
+                        <li><strong>Mediodía:</strong> Subida por la costa hasta Carrapateira. Visita a <strong>Praia da Bordeira</strong> y sus famosas pasarelas de madera. Almuerzo en Carrapateira o Vila do Bispo.</li>
+                        <li><strong>Tarde:</strong> Visita a la imponente <strong>Fortaleza de Sagres</strong>.</li>
+                        <li><strong>Atardecer (~19:24):</strong> Contemplar la puesta de sol desde el <strong>Cabo de São Vicente</strong>, el "fin del mundo".</li>
+                        <li><strong>Noche:</strong> Cena y alojamiento por la zona de Sagres o Vila do Bispo.</li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">En Silves, <strong>"Café Inglês"</strong> (justo debajo del castillo, con vistas y buen ambiente). En Vila Real, <strong>"Restaurante da Associação Naval"</strong> ofrece buen pescado con vistas al río.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si no os apetece el interior, podéis dedicar el día a explorar alguna playa que os haya quedado pendiente, como <strong>Praia do Camilo</strong> (Lagos) o la Ilha de Tavira, y luego conducir directamente al alojamiento de la última noche.</p>
                 `
             },
             day6: {
-                title: "Día 6 (26): Despedida de Portugal y regreso a Málaga",
-                route: "Vila Real de Santo António → Málaga (Aprox. 3h - 300 km)",
+                title: "Día 6 (26 Sept): Regreso a Málaga",
                 plan: `
-                    <p class="mb-4">Última mañana para disfrutar de la brisa portuguesa antes de emprender el camino de vuelta a casa.</p>
+                    <p class="mb-4">Última mañana para disfrutar de la brisa del Atlántico antes de emprender el camino de vuelta a casa, con el recuerdo de un viaje inolvidable.</p>
                     <h4 class="font-semibold text-lg text-[#4A3F35] mb-2">Plan del Día:</h4>
                     <ul class="list-disc list-inside space-y-2 text-[#785A3E]">
-                        <li><strong>Mañana:</strong> Desayunad tranquilamente. Podéis dar un último paseo por Vila Real o cruzar en el ferry a <strong>Ayamonte</strong> (España) para una visita rápida (es un trayecto de 15 minutos). Comprad algunos recuerdos o productos locales como conservas o dulces.</li>
-                        <li><strong>Mediodía:</strong> Emprended el viaje de regreso a Málaga. El objetivo es estar allí a la hora que necesitéis.</li>
+                        <li><strong>Mañana:</strong> Desayuno tranquilo en la zona de Sagres/Vila do Bispo.</li>
+                        <li><strong>Mediodía:</strong> Inicio del viaje de regreso a Málaga (aprox. 3.5 horas).</li>
+                        <li class="!list-none mt-4">
+                            <p class="p-3 bg-blue-50 border border-blue-200 rounded-lg text-blue-800">
+                                <strong>Consejo:</strong> Si la noche anterior dormís en un punto más al este (como Lagos o Albufeira), podéis acortar significativamente el tiempo de conducción del último día.
+                            </p>
+                        </li>
                     </ul>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🍴 Dónde Comer (Bueno y Barato):</h4>
-                    <p class="text-[#785A3E]">Podéis comer algo en Ayamonte antes de salir, famoso por sus tapas, o parar a mitad de camino en alguna venta en la autovía.</p>
-                    <h4 class="font-semibold text-lg text-[#4A3F35] mt-4 mb-2">🔄 Plan B:</h4>
-                    <p class="text-[#785A3E]">Si salís con tiempo, podéis hacer una parada en el <strong>Parque Nacional de Doñana</strong> (zona de Huelva) para un breve paseo por alguno de sus senderos accesibles antes de continuar hacia Málaga.</p>
                 `
             }
         };
@@ -199,8 +203,7 @@
             setTimeout(() => {
                 const contentHTML = `
                 <div class="content-card">
-                    <h3 class="text-2xl md:text-3xl font-bold text-[#4A3F35] mb-2">${dayData.title}</h3>
-                    <p class="text-md text-[#A58258] font-semibold mb-4">${dayData.route}</p>
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#4A3F35] mb-3">${dayData.title}</h3>
                     ${dayData.plan}
                 </div>
             `;
